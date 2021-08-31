@@ -40,6 +40,12 @@ p {
 
 body {
   font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.71;
+
+  letter-spacing: 0.03em;
   background-color: var(--ptimary-lighte-color);
 }
 
@@ -188,11 +194,18 @@ button {
 
 .icon {
   fill: #757575;
+}
+
+.icon-header {
   margin-right: 10px;
 }
 
 .item-icon:hover svg,
 .item-icon:focus svg {
+  fill: var(--brand-color);
+}
+
+.link:focus svg {
   fill: var(--brand-color);
 }
 
@@ -346,7 +359,11 @@ button {
 }
 
 .cont-icon {
-  padding: 25px 100px;
+  width: 270px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 30px;
 
   background: var(--bg-color);
@@ -415,26 +432,33 @@ button {
   width: 206px;
 
   padding-left: 0;
+  margin-bottom: 0;
+  margin-top: 0;
 
   list-style: none;
 }
 
+.social-item {
+  margin-right: 10px;
+}
+
 .social-links .link {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 44px;
   height: 44px;
-
-  margin-right: 10px;
-  padding: 12px;
   border-radius: 50%;
   color: #afb1b8;
 }
 
-.social-links .link:hover {
+.social-links .link:hover,
+.social-links .link:focus {
   background-color: var(--brand-color);
 }
 
-.soc-link:hover svg {
+.soc-link:hover svg,
+.soc-link:focus svg {
   fill: var(--ptimary-lighte-color);
 }
 
@@ -447,8 +471,7 @@ button {
 }
 
 .item-text {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding: 30px 32px;
 }
 
 .team {
@@ -549,7 +572,6 @@ button {
 }
 
 .container-footer {
-  margin-left: 215px;
   margin-right: 70px;
 }
 
@@ -565,6 +587,8 @@ button {
   text-transform: uppercase;
 
   color: var(--ptimary-lighte-color);
+
+  margin-bottom: 20px;
 }
 
 .soc-footer {
@@ -577,10 +601,12 @@ button {
 
 /* -----Постоянные клиенты------*/
 
+.section-clients {
+  padding: 94px 0;
+}
+
 .container-clients {
   text-align: center;
-  padding-top: 90px;
-  padding-bottom: 88px;
 }
 
 .tittle-clients {
@@ -615,13 +641,35 @@ button {
 
 .icon-client {
   fill: var(--color-icon);
-  border: 1px solid var(--color-icon);
-  padding: 16px 32px;
 }
 
-.icon-client:hover {
+/* .icon-client:hover,
+.icon-client:focus {
+  fill: var(--brand-color);
+} */
+
+.link-client {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 170px;
+  height: 92px;
+  border: 1px solid var(--color-icon);
+}
+
+.link-client:hover,
+.link-client:focus {
   fill: var(--brand-color);
   border: 1px solid var(--brand-color);
+}
+
+.link-client:hover svg,
+.link-client:focus svg {
+  fill: var(--brand-color);
+}
+
+.soc-foot-item {
+  margin-right: 10px;
 }
 
 /* Портфолио */
@@ -667,11 +715,11 @@ button {
   text-decoration: none;
 }
 
-.portfolio a:hover,
+/* .portfolio a:hover,
 .portfolio a:focus {
   text-decoration: underline;
   text-decoration-color: var(--brand-color);
-}
+} */
 
 .filtr {
   display: flex;
@@ -787,4 +835,82 @@ button {
   margin-top: -5px;
   border: 1px solid var(--bg-cards);
   border-top: none;
+}
+
+.link-card {
+  text-decoration: none;
+}
+
+.thumb::before {
+  display: inline-block;
+  position: absolute;
+  content: "";
+  background-color: rgba(33, 150, 243, 0.9);
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+}
+
+.link-card:hover .thumb::before {
+  opacity: 1;
+}
+
+.overlay {
+  position: relative;
+  display: flex;
+}
+
+.overlay-text {
+  position: absolute;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24px;
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: var(--ptimary-lighte-color);
+}
+
+.link-card:hover .overlay-text {
+  opacity: 1;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 528px;
+  height: 581px;
+
+  background: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
 }
